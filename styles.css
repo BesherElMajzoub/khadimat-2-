@@ -1,0 +1,291 @@
+/* Reset & base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Cairo', Arial, sans-serif;
+  background-color: #f5f7f0;
+  direction: rtl;
+  text-align: right;
+  color: #000;
+}
+
+/* ===== HERO (FULL-BLEED) ===== */
+
+
+
+
+.hero {
+  width: 100%;                          /* يمتد العرض كامل */
+  height: 250px;                        /* ارتفاع مناسب (غير 100vh) */
+  background: linear-gradient(135deg, #4281FF);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hero__inner {
+  width: min(1200px, 100%);             /* داخل الهيرو فقط */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hero__title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.hero__subtitle {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.hero__image {
+  width: 220px;
+  height: auto;
+
+}
+
+
+
+/* ===== CTA SECTION (مركزي) ===== */
+.cta-section {
+  text-align: center;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== FOOTER (full-width) ===== */
+/* فوتر بعرض كامل حتى لو داخل container */
+.footer {
+  background: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+
+  /* مهمتين ليمتد الفوتر لكامل عرض الشاشة */
+  width: 100vw;                           /* يمسك عرض نافذة المتصفح */
+  margin-inline: calc(50% - 50vw);        /* يحرره من قيود الـ container */
+  grid-column: 1 / -1;                    /* لو الصفحة Grid، يخلي الفوتر يمتد لكل الأعمدة */
+}
+
+
+/* ===== FLOATING BUTTONS (على الأطراف) ===== */
+.floating-buttons {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;        /* واحد يمين وواحد يسار */
+  padding: 0 20px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.floating-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform .25s ease, box-shadow .25s ease;
+  pointer-events: auto;
+}
+/*  */
+
+
+/* محتوى الهيرو داخلي حتى لا يتأثر بعرض الحاويات اللاحقة */
+
+.hero__text-group { z-index: 2; }
+
+
+
+
+/* صورة الهيرو */
+
+/* سهم تمرير اختياري */
+.hero__scroll {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-decoration: none;
+  font-size: 32px;
+  opacity: .9;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.hero__scroll:hover { transform: translateX(-50%) translateY(3px); opacity: 1; }
+
+/* ===== LAYOUT AFTER HERO ===== */
+.container {
+  width: min(1200px, 100%);
+  margin-inline: auto;
+  padding: 20px;
+  display: grid;
+  gap: 30px;
+}
+
+/* البطاقة الرئيسية */
+.main-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #000;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.window-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px auto;
+  display: block;
+}
+
+.main-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+/* أزرار */
+.phone-button {
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .25s ease;
+  cursor: pointer;
+}
+.phone-button:hover { background: #000; color: #fff; transform: translateY(-2px); }
+
+
+.cta-button,
+.request-button {
+  border: none;
+  border-radius: 25px;
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: all .25s ease;
+  margin: 8px 0;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #6C63FF, #4C4AFF);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+.cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(108, 99, 255, 0.4); }
+
+.request-button {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+.request-button:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4); }
+
+/* المزايا */
+.features-section {
+  background: #fff;
+  border-radius: 16px;
+  border: 2px solid #000;
+  padding: 30px 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.feature-item:last-child { margin-bottom: 0; }
+
+.check-icon {
+  width: 24px;
+  height: 24px;
+  background: #4CAF50;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  margin-top: 2px;
+}
+.check-icon::after {
+  content: '✓';
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.feature-content h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.feature-content p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* تذييل */
+
+.footer p { font-size: 11px; font-weight: 800; line-height: 1.6; }
+.footer a { color: #6C63FF; text-decoration: underline; }
+.footer a:hover { color: #4C4AFF; }
+
+/* الأزرار العائمة */
+
+
+.floating-btn:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+.whatsapp-btn { background: #25D366; }
+.call-btn { background: #fff; border: 2px solid #000; }
+.floating-btn svg { width: 28px; height: 28px; }
+
+/* RESPONSIVE */
+@media (max-width: 920px) {
+  .hero__inner { grid-template-columns: 1fr; text-align: center; }
+  .hero__image { margin-inline: auto; }
+  .hero {height: 200px;}
+}
+
+@media (min-width: 768px) {
+  .container { grid-template-columns: 1fr 1fr; }
+  .features-section { grid-column: 1 / -1; }
+    .hero {height: 200px;}
+  .hero {height: 200px;}
+}
+
+@media (min-width: 1200px) {
+  .container { grid-template-columns: repeat(3, 1fr); }
+  .main-card { grid-column: 1 / 3; }
+}
