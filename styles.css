@@ -19,7 +19,7 @@ body {
 .hero {
   width: 100%;                          /* يمتد العرض كامل */
   height: 250px;                        /* ارتفاع مناسب (غير 100vh) */
-  background: linear-gradient(135deg, #4281FF);
+  background: linear-gradient(135deg, #6C63FF, #4C4AFF);
   position: relative;
   overflow: hidden;
   display: flex;
