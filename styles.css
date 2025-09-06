@@ -148,26 +148,29 @@ body {
 
 /* البطاقة الرئيسية */
 .main-card {
+  max-width: 800px;              /* تكبير الكارد */
+  width: 100%;
+  margin: 40px auto;             /* في المنتصف */
   background: #fff;
-  border-radius: 16px;
+  border-radius: 20px;
   border: 1px solid #000;
-  padding: 30px 20px;
+  padding: 40px 30px;            /* تكبير البادينغ */
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.window-image {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 20px auto;
-  display: block;
+.main-card .window-image {
+  width: 250px;                  /* صورة أكبر */
+  height: auto;
+  margin: 0 auto 20px;
 }
 
-.main-title {
-  font-size: 22px;
+.main-card .main-title {
+  font-size: 28px;               /* عنوان أكبر */
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
+
 
 /* أزرار */
 .phone-button {
@@ -222,11 +225,16 @@ body {
 
 /* المزايا */
 .features-section {
+  max-width: 1000px;               /* تصغير العرض */
+  width: 100%;
+  margin: 30px auto;              /* توسيطها بالصفحة */
   background: #fff;
   border-radius: 16px;
-  border: 2px solid #000;
-  padding: 30px 20px;
+  border: 1px solid #ddd;
+  padding: 40px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
+
 
 .feature-item {
   display: flex;
@@ -268,9 +276,39 @@ body {
 
 /* تذييل */
 
-.footer p { font-size: 11px; font-weight: 800; line-height: 1.6; }
-.footer a { color: #6C63FF; text-decoration: underline; }
-.footer a:hover { color: #4C4AFF; }
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, #f5f7f0, #eaeef9); /* خلفية ناعمة */
+  border-top: 2px solid #6C63FF;                        /* خط علوي بلون أساسي */
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #4C4AFF;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #25D366; /* يتحول لون الرابط للأخضر عند المرور */
+}
+
+/* إضافة أيقونات صغيرة قبل الروابط */
+.footer a::before {
+  content: "• ";
+  color: #6C63FF;
+}
 
 /* الأزرار العائمة */
 
