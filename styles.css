@@ -74,18 +74,21 @@ body {
 /* ===== CTA SECTION (مركزي) ===== */
 .cta-section {
   display: flex;
-  justify-content: center;   /* يوسّطهم */
+  justify-content: center;   /* توسيط الأزرار */
+  align-items: center;
   gap: 15px;                 /* مسافة بين الأزرار */
-  flex-wrap: wrap;           /* عشان بالموبايل ينزلوا تحت بعض */
   margin-top: 20px;
+  flex-wrap: nowrap;         /* يمنع النزول تحت بعض */
 }
 
 .cta-button,
 .request-button {
-  margin: 0;                 /* إزالة الهوامش القديمة */
-  flex: 1 1 auto;            /* يخليهم يستجيبوا */
-  min-width: 120px;          /* عرض أدنى لكل زر */
+  flex: 1;                   /* نفس الحجم بالضبط */
+  min-width: 140px;          /* عرض ثابت أدنى */
+  margin: 0;                 /* إزالة الهوامش */
+  text-align: center;        /* النص بالوسط */
 }
+
 
 
 /* ===== FOOTER (full-width) ===== */
