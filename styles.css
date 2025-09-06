@@ -73,13 +73,20 @@ body {
 
 /* ===== CTA SECTION (مركزي) ===== */
 .cta-section {
-  text-align: center;
-  margin: 40px 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: center;   /* يوسّطهم */
+  gap: 15px;                 /* مسافة بين الأزرار */
+  flex-wrap: wrap;           /* عشان بالموبايل ينزلوا تحت بعض */
+  margin-top: 20px;
 }
+
+.cta-button,
+.request-button {
+  margin: 0;                 /* إزالة الهوامش القديمة */
+  flex: 1 1 auto;            /* يخليهم يستجيبوا */
+  min-width: 120px;          /* عرض أدنى لكل زر */
+}
+
 
 /* ===== FOOTER (full-width) ===== */
 /* فوتر بعرض كامل حتى لو داخل container */
