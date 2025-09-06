@@ -1,4 +1,3 @@
-/* Reset & base */
 * {
   margin: 0;
   padding: 0;
@@ -18,16 +17,13 @@ body {
   color: #000;
 }
 
-/* ===== HERO (FULL-BLEED) ===== */
 
 
 
 
 .hero {
   width: 100%;
-  /* يمتد العرض كامل */
-  height: 250px;
-  /* ارتفاع مناسب (غير 100vh) */
+  height: 140px;
   background: linear-gradient(135deg, #6C63FF, #4C4AFF);
   position: relative;
   overflow: visible;
@@ -39,7 +35,6 @@ body {
 
 .hero__inner {
   width: min(1200px, 100%);
-  /* داخل الهيرو فقط */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,70 +68,57 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -28px;                 /* يطلع شوي خارج الهيرو */
+  bottom: -28px;
   background: #fff;
   color: #000;
   border: 2px solid #000;
-  border-radius: 40px;           /* كبسولة أنعم */
-  padding: 14px 40px;            /* حجم أكبر */
-  font-size: 18px;               /* نص أوضح */
+  border-radius: 40px;
+  padding: 14px 40px;
+  font-size: 18px;
   font-weight: 800;
   text-decoration: none;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   z-index: 10;
-  white-space: nowrap;           /* يبقى بسطر واحد */
+  white-space: nowrap;
   transition: all 0.25s ease;
 }
 
 .hero-call:hover {
   transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 
-/* ===== CTA SECTION (مركزي) ===== */
+
 .cta-section {
   display: flex;
   justify-content: center;
-  /* توسيط الأزرار */
   align-items: center;
   gap: 15px;
-  /* مسافة بين الأزرار */
   margin-top: 20px;
   flex-wrap: nowrap;
-  /* يمنع النزول تحت بعض */
 }
 
 .cta-button,
 .request-button {
   flex: 1;
-  /* نفس الحجم بالضبط */
   min-width: 140px;
-  /* عرض ثابت أدنى */
   margin: 0;
-  /* إزالة الهوامش */
   text-align: center;
-  /* النص بالوسط */
 }
 
 
 
 /* ===== FOOTER (full-width) ===== */
-/* فوتر بعرض كامل حتى لو داخل container */
 .footer {
   background: #fff;
   padding: 30px 20px;
   text-align: center;
   border-top: 1px solid #ddd;
   margin-top: 40px;
-
-  /* مهمتين ليمتد الفوتر لكامل عرض الشاشة */
   width: 100vw;
-  /* يمسك عرض نافذة المتصفح */
   margin-inline: calc(50% - 50vw);
-  /* يحرره من قيود الـ container */
   grid-column: 1 / -1;
-  /* لو الصفحة Grid، يخلي الفوتر يمتد لكل الأعمدة */
 }
 
 
@@ -148,7 +130,6 @@ body {
   right: 0;
   display: flex;
   justify-content: space-between;
-  /* واحد يمين وواحد يسار */
   padding: 0 20px;
   z-index: 1000;
   pointer-events: none;
@@ -166,10 +147,8 @@ body {
   pointer-events: auto;
 }
 
-/*  */
 
 
-/* محتوى الهيرو داخلي حتى لا يتأثر بعرض الحاويات اللاحقة */
 
 .hero__text-group {
   z-index: 2;
@@ -178,27 +157,9 @@ body {
 
 
 
-/* صورة الهيرو */
 
-/* سهم تمرير اختياري */
-.hero__scroll {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  text-decoration: none;
-  font-size: 32px;
-  opacity: .9;
-  transition: transform .25s ease, opacity .25s ease;
-}
 
-.hero__scroll:hover {
-  transform: translateX(-50%) translateY(3px);
-  opacity: 1;
-}
 
-/* ===== LAYOUT AFTER HERO ===== */
 .container {
   width: min(1200px, 100%);
   margin-inline: auto;
@@ -207,41 +168,33 @@ body {
   gap: 30px;
 }
 
-/* البطاقة الرئيسية */
 .main-card {
   max-width: 800px;
-  /* تكبير الكارد */
   width: 100%;
   margin: 40px auto;
-  /* في المنتصف */
   background: #fff;
   border-radius: 20px;
   border: 1px solid #000;
   padding: 40px 30px;
-  /* تكبير البادينغ */
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .main-card .window-image {
   width: 250px;
-  /* صورة أكبر */
   height: auto;
   margin: 0 auto 20px;
 }
 
 .main-card .main-title {
   font-size: 28px;
-  /* عنوان أكبر */
   font-weight: 800;
   margin-bottom: 20px;
 }
 
 
-/* أزرار */
 .phone-button {
   background: linear-gradient(135deg, #6C63FF, #4C4AFF);
-  /* border: 3px solid #000; */
   border-radius: 25px;
   padding: 12px 20px;
   font-size: 18px;
@@ -258,7 +211,6 @@ body {
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(66, 129, 255, 0.4);
-  /* ظل أزرق خفيف */
 }
 
 
@@ -298,13 +250,10 @@ body {
   box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4);
 }
 
-/* المزايا */
 .features-section {
   max-width: 1000px;
-  /* تصغير العرض */
   width: 100%;
   margin: 30px auto;
-  /* توسيطها بالصفحة */
   background: #fff;
   border-radius: 16px;
   border: 1px solid #ddd;
@@ -356,14 +305,11 @@ body {
   line-height: 1.6;
 }
 
-/* تذييل */
 
 .footer {
   width: 100%;
   background: linear-gradient(135deg, #f5f7f0, #eaeef9);
-  /* خلفية ناعمة */
   border-top: 2px solid #6C63FF;
-  /* خط علوي بلون أساسي */
   padding: 30px 20px;
   text-align: center;
   margin-top: 50px;
@@ -386,16 +332,13 @@ body {
 
 .footer a:hover {
   color: #25D366;
-  /* يتحول لون الرابط للأخضر عند المرور */
 }
 
-/* إضافة أيقونات صغيرة قبل الروابط */
 .footer a::before {
   content: "• ";
   color: #6C63FF;
 }
 
-/* الأزرار العائمة */
 
 
 .floating-btn:hover {
@@ -417,8 +360,8 @@ body {
   height: 28px;
 }
 
-/* RESPONSIVE */
-/* الموبايل (أقل من 600px) */
+
+
 @media (max-width: 600px) {
 
   .hero-call {
@@ -443,33 +386,27 @@ body {
 
   .main-card {
     max-width: 95%;
-    /* تصغير العرض */
     padding: 20px 15px;
-    /* تقليل المسافة الداخلية */
+
   }
 
   .main-card .window-image {
     width: 150px;
-    /* صورة أصغر */
   }
 
   .main-card .main-title {
     font-size: 20px;
-    /* عنوان أصغر */
   }
 
   .cta-button,
   .request-button {
     font-size: 16px;
-    /* أزرار أصغر */
     padding: 12px 24px;
   }
 
   .features-section {
     max-width: 95%;
-    /* عرض أصغر */
     padding: 20px 15px;
-    /* تقليل المسافات الداخلية */
   }
 
   .feature-content h3 {
