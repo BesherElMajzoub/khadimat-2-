@@ -26,7 +26,7 @@ body {
 .hero {
   width: 100%;
   /* يمتد العرض كامل */
-  height: 200px;
+  height: 140px;
   /* ارتفاع مناسب (غير 100vh) */
   background: linear-gradient(135deg, #6C63FF, #4C4AFF);
   position: relative;
