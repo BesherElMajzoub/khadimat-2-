@@ -26,11 +26,11 @@ body {
 .hero {
   width: 100%;
   /* يمتد العرض كامل */
-  height: 140px;
+  height: 250px;
   /* ارتفاع مناسب (غير 100vh) */
   background: linear-gradient(135deg, #6C63FF, #4C4AFF);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,24 +69,54 @@ body {
 
 }
 
+.hero-call {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -28px;                 /* يطلع شوي خارج الهيرو */
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 40px;           /* كبسولة أنعم */
+  padding: 14px 40px;            /* حجم أكبر */
+  font-size: 18px;               /* نص أوضح */
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  z-index: 10;
+  white-space: nowrap;           /* يبقى بسطر واحد */
+  transition: all 0.25s ease;
+}
+
+.hero-call:hover {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
 
 
 /* ===== CTA SECTION (مركزي) ===== */
 .cta-section {
   display: flex;
-  justify-content: center;   /* توسيط الأزرار */
+  justify-content: center;
+  /* توسيط الأزرار */
   align-items: center;
-  gap: 15px;                 /* مسافة بين الأزرار */
+  gap: 15px;
+  /* مسافة بين الأزرار */
   margin-top: 20px;
-  flex-wrap: nowrap;         /* يمنع النزول تحت بعض */
+  flex-wrap: nowrap;
+  /* يمنع النزول تحت بعض */
 }
 
 .cta-button,
 .request-button {
-  flex: 1;                   /* نفس الحجم بالضبط */
-  min-width: 140px;          /* عرض ثابت أدنى */
-  margin: 0;                 /* إزالة الهوامش */
-  text-align: center;        /* النص بالوسط */
+  flex: 1;
+  /* نفس الحجم بالضبط */
+  min-width: 140px;
+  /* عرض ثابت أدنى */
+  margin: 0;
+  /* إزالة الهوامش */
+  text-align: center;
+  /* النص بالوسط */
 }
 
 
@@ -390,6 +420,14 @@ body {
 /* RESPONSIVE */
 /* الموبايل (أقل من 600px) */
 @media (max-width: 600px) {
+
+  .hero-call {
+    bottom: -22px;
+    padding: 8px 18px;
+    font-size: 14px;
+    border-width: 2px;
+  }
+
   .hero__inner {
     grid-template-columns: 1fr;
     text-align: center;
