@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-bind="pageTitle">خدمة الخادمات</title>
-  <meta name="keywords" content="خادمات بالشهر, شغالات بالشهر, عاملات بالشهر, خادمة بالشهر, شغالة بالشهر, تأجير خادمات بالشهر, تأجير شغالات بالشهر, عاملات منزلية بالشهر, شركات عاملات بالشهر, مكتب خادمات بالشهر, مكتب عاملات بالشهر, شغالات حبشيات بالشهر, شغالات صوماليات بالشهر, خادمات بالساعة, شغالات بالساعة, عاملات بالساعة, الرياض, جدة"/>
+  <meta name="keywords" content="خادمات بالشهر, شغالات بالشهر, عاملات بالشهر, خادمة بالشهر, شغالة بالشهر, تأجير خادمات بالشهر, تأجير شغالات بالشهر, عاملات منزلية بالشهر, شركات عاملات بالشهر, مكتب خادمات بالشهر, مكتب عاملات بالشهر, شغالات حبشيات بالشهر, شغالات صوماليات بالشهر, خادمات بالساعة, شغالات بالساعة, عاملات بالساعة, طباخات بالشهر, طباخة بالشهر, طباخه بالشهر, الرياض, جدة"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,11 +12,12 @@
 <body>
   <script>
     const DEFAULT_CONFIG = {
-      officeName: 'سميرة',
+      officeName: 'Friendly',
       phoneNumber: '0934509759',
       city: 'الرياض',
       offersHourly: true,
       offersMonthly: true,
+      offersCooks: true,
       nationalityText: 'صوماليات وحبشيات',
       heroImage: 'image/maid.png',
       windowImage: 'image/black-houe.png'
@@ -29,6 +30,7 @@
       city: qp.get('city') ?? DEFAULT_CONFIG.city,
       offersHourly: qp.get('hourly') !== null ? qp.get('hourly') === 'true' : DEFAULT_CONFIG.offersHourly,
       offersMonthly: qp.get('monthly') !== null ? qp.get('monthly') === 'true' : DEFAULT_CONFIG.offersMonthly,
+      offersCooks: qp.get('cooks') !== null ? qp.get('cooks') === 'true' : DEFAULT_CONFIG.offersCooks,
       nationalityText: qp.get('nat') ?? DEFAULT_CONFIG.nationalityText,
       heroImage: qp.get('hero') ?? DEFAULT_CONFIG.heroImage,
       windowImage: qp.get('win') ?? DEFAULT_CONFIG.windowImage,
@@ -44,9 +46,9 @@
       <div class="hero__text-group">
         <h1 class="hero__title" data-var="officeName">Friendly</h1>
         <p class="hero__subtitle">
-          <span data-if="offersMonthly && offersHourly">نوفر لك و<strong>خادمات بالشهر</strong> وكذلك <strong>خادمات بالساعة</strong> </span>
-          <span data-if="offersMonthly && !offersHourly">نوفر لك و<strong>خادمات بالشهر</strong></span>
-          <span data-if="offersHourly && !offersMonthly">نوفر لك <strong>خادمات بالساعة</strong> </span>
+          <span data-if="offersMonthly && offersHourly">نوفر لك  و<strong>خادمات بالشهر</strong> وكذلك <strong>خادمات بالساعة</strong> </span>
+          <span data-if="offersMonthly && !offersHourly">نوفر لك <strong>شغالات بالشهر</strong> و<strong>خادمات بالشهر</strong></span>
+          <span data-if="offersHourly && !offersMonthly">نوفر لك <strong>خادمات بالساعة</strong> و<strong>شغالات بالساعة</strong></span>
           <span> في <span data-var="city">الرياض</span></span>
         </p>
       </div>
@@ -58,7 +60,7 @@
   <main id="content">
     <section class="main-card">
       <img class="window-image" data-bind="windowImage" src="image/black-houe.png" alt="نافذة" />
-      <h2 class="main-title">استأجريها وخليها تساعدك   </h2>
+      <h2 class="main-title">استأجري خادمة أو شغالة بالشهر أو بالساعة لمساعدتك</h2>
       <div class="cta-section">
         <a class="cta-button" data-bind="ctaCall">اتصل الآن</a>
         <br>
@@ -90,9 +92,19 @@
       <div class="feature-item" data-if="offersMonthly">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>أسعار تنافسية وخيارات دفع مريحة</h3>
+          <h3>عاملات منزلية بالشهر</h3>
           <p>
-            سواء كنت تبحث عن <strong>شغالة بالشهر بالرياض</strong> أو <strong>عاملات بالشهر</strong> أو حتى <strong>عاملات بالساعة</strong>، نحن نوفر خطط أسعار مدروسة تناسب جميع الميزانيات.
+            خيارات <strong>عاملات بالشهر</strong> و<strong>عاملات منزلية بالشهر</strong> عبر <strong>تأجير عاملات بالشهر</strong> من <strong>شركات العاملات بالشهر</strong> و<strong>مكتب عاملات بالشهر</strong> في <strong data-var="city">الرياض</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item" data-if="offersHourly">
+        <div class="check-icon"></div>
+        <div class="feature-content">
+          <h3>عاملات بالساعة للتنظيف والمساعدة</h3>
+          <p>
+            نوفر <strong>عاملات بالساعة</strong> و<strong>عاملات تنظيف بالساعة</strong> و<strong>عاملات منزلية بالساعة</strong>، مع إمكانية <strong>عروض العاملات بالساعة</strong> وطلب <strong>ارقام عاملات نظافة بالساعة</strong> بسهولة في <strong data-var="city">الرياض</strong>.
           </p>
         </div>
       </div>
@@ -100,9 +112,19 @@
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>خادمات مدربات وذوات خبرة عالية</h3>
+          <h3>خادمات وعاملات مدربات</h3>
           <p>
-            جميع <strong>الخادمات بالشهر</strong> و<strong>الخادمات بالساعة</strong> يتم اختيارهن بعناية وخضعن لتدريب احترافي في التنظيف والطبخ والعناية المنزلية، بما في ذلك <strong>شغالات صوماليات بالشهر</strong> و<strong>شغالات حبشيات بالشهر</strong>.
+            جميع <strong>الخادمات بالشهر</strong> و<strong>العاملات بالشهر</strong> يتم اختيارهن بعناية وخضعن لتدريب احترافي، بما في ذلك <strong>شغالات صوماليات بالشهر</strong> و<strong>شغالات حبشيات بالشهر</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item" data-if="offersCooks && offersMonthly">
+        <div class="check-icon"></div>
+        <div class="feature-content">
+          <h3>طباخات بالشهر خبرة في الطبخ المنزلي</h3>
+          <p>
+            نوفر <strong>طباخات بالشهر</strong> و<strong>طباخة بالشهر</strong> بخبرة عالية في الأطباق المنزلية اليومية والمأكولات الشعبية، متاحات للعمل في <strong data-var="city">الرياض</strong>.
           </p>
         </div>
       </div>
@@ -110,9 +132,9 @@
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>إجراءات سريعة وبسيطة بدون تعقيدات</h3>
+          <h3>إجراءات سريعة وبسيطة</h3>
           <p>
-            يمكنك طلب <strong>مكتب خادمات بالشهر</strong> أو <strong>شركة شغالات بالساعة</strong> بخطوات بسيطة جدًا. نحن نختصر لك الوقت ونوفر الخدمة بشكل مباشر وسريع.
+            يمكنك طلب <strong>مكتب خادمات بالشهر</strong> أو <strong>شركة شغالات بالساعة</strong> بخطوات بسيطة جدًا. نوفر الخدمة بشكل مباشر وسريع دون تعقيدات.
           </p>
         </div>
       </div>
@@ -120,9 +142,9 @@
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>ضمان جودة الخدمة والمتابعة المستمرة</h3>
+          <h3>ضمان جودة الخدمة والمتابعة</h3>
           <p>
-            نتابع معك باستمرار بعد <strong>تأجير خادمات بالشهر</strong> أو <strong>شغالات بالساعة</strong> للتأكد من تقديم أعلى مستوى من الخدمة وتحقيق رضاك الكامل.
+            نتابع معك باستمرار بعد <strong>تأجير خادمات بالشهر</strong> أو <strong>شغالات بالساعة</strong> لضمان أعلى مستوى من الخدمة وتحقيق رضاك الكامل.
           </p>
         </div>
       </div>
@@ -130,9 +152,9 @@
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>خدمة عملاء متاحة دائمًا لخدمتك</h3>
+          <h3>خدمة عملاء متاحة دائمًا</h3>
           <p>
-            سواء كنت بحاجة إلى <strong>رقم شغالات بالشهر</strong> أو <strong>أرقام شغالات بالساعة</strong> أو التواصل مع <strong>شركات عاملات بالشهر</strong> و<strong>شركات الشغالات بالساعة</strong>، فريق الدعم لدينا متواجد دائمًا لمساعدتك.
+            سواء كنتِ بحاجة إلى <strong>رقم شغالات بالشهر</strong> أو <strong>أرقام شغالات بالساعة</strong> أو التواصل مع <strong>شركات عاملات بالشهر</strong>، فريق الدعم لدينا متواجد دائمًا لمساعدتك.
           </p>
         </div>
       </div>
