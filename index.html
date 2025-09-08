@@ -1,63 +1,98 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>خدمة الخادمات</title>
+  <title data-bind="pageTitle">خدمة الخادمات</title>
+  <meta name="keywords" content="خادمات بالشهر, شغالات بالشهر, عاملات بالشهر, خادمة بالشهر, شغالة بالشهر, تأجير خادمات بالشهر, تأجير شغالات بالشهر, عاملات منزلية بالشهر, شركات عاملات بالشهر, مكتب خادمات بالشهر, مكتب عاملات بالشهر, شغالات حبشيات بالشهر, شغالات صوماليات بالشهر, خادمات بالساعة, شغالات بالساعة, عاملات بالساعة, الرياض, جدة"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <script>
+    const DEFAULT_CONFIG = {
+      officeName: 'سميرة',
+      phoneNumber: '0934509759',
+      city: 'الرياض',
+      offersHourly: true,
+      offersMonthly: true,
+      nationalityText: 'صوماليات وحبشيات',
+      heroImage: 'image/maid.png',
+      windowImage: 'image/black-houe.png'
+    };
+
+    const qp = new URLSearchParams(location.search);
+    const CONFIG = {
+      officeName: qp.get('office') ?? DEFAULT_CONFIG.officeName,
+      phoneNumber: qp.get('phone') ?? DEFAULT_CONFIG.phoneNumber,
+      city: qp.get('city') ?? DEFAULT_CONFIG.city,
+      offersHourly: qp.get('hourly') !== null ? qp.get('hourly') === 'true' : DEFAULT_CONFIG.offersHourly,
+      offersMonthly: qp.get('monthly') !== null ? qp.get('monthly') === 'true' : DEFAULT_CONFIG.offersMonthly,
+      nationalityText: qp.get('nat') ?? DEFAULT_CONFIG.nationalityText,
+      heroImage: qp.get('hero') ?? DEFAULT_CONFIG.heroImage,
+      windowImage: qp.get('win') ?? DEFAULT_CONFIG.windowImage,
+    };
+
+    const onlyDigits = (s) => (s || '').toString().replace(/\D+/g, '');
+    const waLink = (num) => `https://wa.me/${onlyDigits(num)}`;
+    const telLink = (num) => `tel:${onlyDigits(num)}`;
+  </script>
 
   <header class="hero">
     <div class="hero__inner">
       <div class="hero__text-group">
-        <h1 class="hero__title">Friendly</h1>
-        <p class="hero__subtitle">نوفر لك خادمات إفريقيات بالساعة أو بالشهر </p>
+        <h1 class="hero__title" data-var="officeName">Friendly</h1>
+        <p class="hero__subtitle">
+          <span data-if="offersMonthly && offersHourly">نوفر لك و<strong>خادمات بالشهر</strong> وكذلك <strong>خادمات بالساعة</strong> </span>
+          <span data-if="offersMonthly && !offersHourly">نوفر لك و<strong>خادمات بالشهر</strong></span>
+          <span data-if="offersHourly && !offersMonthly">نوفر لك <strong>خادمات بالساعة</strong> </span>
+          <span> في <span data-var="city">الرياض</span></span>
+        </p>
       </div>
-      <a href="tel:0934509759" class="hero-call">اتصل الآن 0934509759</a>
-
-      <img class="hero__image" src="image\maid.png" alt="خادمة منزلية" />
+      <a class="hero-call" data-bind="callNow">اتصل الآن</a>
+      <img class="hero__image" data-bind="heroImage" src="image/maid.png" alt="خادمة منزلية"/>
     </div>
-
   </header>
 
   <main id="content">
     <section class="main-card">
-      <img class="window-image" src="image/black-houe.png" alt="نافذة" />
-      <h2 class="main-title">استأجريها وخليها تساعدك</h2>
+      <img class="window-image" data-bind="windowImage" src="image/black-houe.png" alt="نافذة" />
+      <h2 class="main-title">استأجريها وخليها تساعدك   </h2>
       <div class="cta-section">
-        <a href="tel:0934509759" class="cta-button">اتصل الآن</a>
+        <a class="cta-button" data-bind="ctaCall">اتصل الآن</a>
         <br>
-        <a href="https://wa.me/0934509759" class="request-button">أرسل واتساب</a>
+        <a class="request-button" target="_blank" rel="noopener" data-bind="ctaWhatsApp">أرسل واتساب</a>
       </div>
     </section>
 
-
-
-
     <section class="features-section">
-      <div class="feature-item">
+      <div class="feature-item" data-if="offersMonthly">
         <div class="check-icon"></div>
         <div class="feature-content">
           <h3>شغالات بالشهر مرونة حسب احتياجك</h3>
           <p>
-            نوفر لك خيارات متعددة مثل <strong>شغالات بالشهر</strong> أو بالساعة حسب رغبتك،
-            ويمكنك طلب <strong>ارقام شغالات بالشهر</strong> بسهولة والتواصل معنا
-            للحصول على <strong>تأجير شغالات بالشهر</strong> بما يتناسب مع احتياجاتك.
+            نوفر لك خيارات متعددة مثل <strong>شغالات بالشهر</strong> أو <strong>شغالة بالشهر</strong>، ويمكنك طلب <strong>ارقام شغالات بالشهر</strong> بسهولة والتواصل معنا للحصول على <strong>تأجير شغالات بالشهر</strong>.
           </p>
         </div>
       </div>
 
-      <div class="feature-item">
+      <div class="feature-item" data-if="offersHourly">
+        <div class="check-icon"></div>
+        <div class="feature-content">
+          <h3>خادمات بالساعة مرونة وسهولة</h3>
+          <p>
+            إذا كنتِ ترغبين في المساعدة السريعة، نوفر <strong>خادمات بالساعة</strong> و<strong>شغالات بالساعة</strong> للتنظيف أو الرعاية المنزلية، مع إمكانية الحصول على <strong>أرقام شغالات بالساعة</strong> بسهولة.
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-item" data-if="offersMonthly">
         <div class="check-icon"></div>
         <div class="feature-content">
           <h3>أسعار تنافسية وخيارات دفع مريحة</h3>
           <p>
-            سواء كنت تبحث عن <strong>شغاله بالشهر بالرياض</strong> أو <strong>عاملات بالشهر</strong>،
-            نحن نوفر خطط أسعار مدروسة تناسب جميع الميزانيات، مع خيارات دفع مرنة وسهلة.
+            سواء كنت تبحث عن <strong>شغالة بالشهر بالرياض</strong> أو <strong>عاملات بالشهر</strong> أو حتى <strong>عاملات بالساعة</strong>، نحن نوفر خطط أسعار مدروسة تناسب جميع الميزانيات.
           </p>
         </div>
       </div>
@@ -67,10 +102,7 @@
         <div class="feature-content">
           <h3>خادمات مدربات وذوات خبرة عالية</h3>
           <p>
-            جميع <strong>الخادمات بالشهر</strong> و<strong>العاملات المنزلية بالشهر</strong>
-            لدينا يتم اختيارهن بعناية وخضعن لتدريب احترافي في التنظيف، الطبخ،
-            والعناية المنزلية، بما في ذلك <strong>شغالات صوماليات بالشهر</strong> و
-            <strong>شغالات حبشيات بالشهر</strong>.
+            جميع <strong>الخادمات بالشهر</strong> و<strong>الخادمات بالساعة</strong> يتم اختيارهن بعناية وخضعن لتدريب احترافي في التنظيف والطبخ والعناية المنزلية، بما في ذلك <strong>شغالات صوماليات بالشهر</strong> و<strong>شغالات حبشيات بالشهر</strong>.
           </p>
         </div>
       </div>
@@ -80,8 +112,7 @@
         <div class="feature-content">
           <h3>إجراءات سريعة وبسيطة بدون تعقيدات</h3>
           <p>
-            يمكنك طلب <strong>مكتب خادمات بالشهر</strong> أو <strong>مكتب عاملات بالشهر</strong>
-            بخطوات بسيطة جداً. نحن نختصر لك الوقت ونوفر لك الخدمة بشكل مباشر وسريع.
+            يمكنك طلب <strong>مكتب خادمات بالشهر</strong> أو <strong>شركة شغالات بالساعة</strong> بخطوات بسيطة جدًا. نحن نختصر لك الوقت ونوفر الخدمة بشكل مباشر وسريع.
           </p>
         </div>
       </div>
@@ -91,8 +122,7 @@
         <div class="feature-content">
           <h3>ضمان جودة الخدمة والمتابعة المستمرة</h3>
           <p>
-            نتابع معك باستمرار بعد <strong>تأجير خادمات بالشهر</strong> أو <strong>عاملات منزليات بالشهر</strong>
-            للتأكد من تقديم أعلى مستوى من الخدمة وتحقيق رضاك الكامل.
+            نتابع معك باستمرار بعد <strong>تأجير خادمات بالشهر</strong> أو <strong>شغالات بالساعة</strong> للتأكد من تقديم أعلى مستوى من الخدمة وتحقيق رضاك الكامل.
           </p>
         </div>
       </div>
@@ -100,11 +130,9 @@
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>خدمة عملاء متاحة دائماً لخدمتك</h3>
+          <h3>خدمة عملاء متاحة دائمًا لخدمتك</h3>
           <p>
-            سواء كنت بحاجة إلى <strong>رقم شغالات بالشهر</strong> أو التواصل مع <strong>شركات عاملات بالشهر</strong>،
-            فريق الدعم لدينا متواجد دائماً للرد على استفساراتك ومساعدتك في اختيار
-            <strong>خادمه بالشهر الرياض</strong> أو <strong>عاملات بالشهر بالرياض</strong>.
+            سواء كنت بحاجة إلى <strong>رقم شغالات بالشهر</strong> أو <strong>أرقام شغالات بالساعة</strong> أو التواصل مع <strong>شركات عاملات بالشهر</strong> و<strong>شركات الشغالات بالساعة</strong>، فريق الدعم لدينا متواجد دائمًا لمساعدتك.
           </p>
         </div>
       </div>
@@ -119,28 +147,61 @@
         <br>
         التسويق الالكتروني
         <a href="http://mntsher.com/" target="_blank" rel="noopener">منتشر</a>
-        | منتشر خيارك الأفضل دائماً لعمل الحملات التسويقية
+        | منتشر خيارك الأفضل دائمًا لعمل الحملات التسويقية
       </p>
     </footer>
-    </div>
   </main>
 
   <div class="floating-buttons">
-    <a href="https://wa.me/0934509759" class="floating-btn whatsapp-btn" target="_blank" rel="noopener">
+    <a class="floating-btn whatsapp-btn" target="_blank" rel="noopener" data-bind="floatWhatsApp" aria-label="واتساب">
       <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
       </svg>
     </a>
 
-    <a href="tel:0934509759" class="floating-btn call-btn">
+    <a class="floating-btn call-btn" data-bind="floatCall" aria-label="اتصال">
       <svg viewBox="0 0 24 24" fill="#000" aria-hidden="true">
-        <path
-          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
       </svg>
     </a>
   </div>
 
-</body>
+  <script>
+    function applyConfig(cfg){
+      document.querySelectorAll('[data-var="officeName"]').forEach(el=> el.textContent = cfg.officeName);
+      document.querySelectorAll('[data-var="city"]').forEach(el=> el.textContent = cfg.city);
+      if(cfg.nationalityText){
+        document.querySelectorAll('[data-var="nationalityText"]').forEach(el=> el.textContent = cfg.nationalityText);
+      }
 
+      const heroImg = document.querySelector('[data-bind="heroImage"]'); if(heroImg) heroImg.src = cfg.heroImage;
+      const winImg  = document.querySelector('[data-bind="windowImage"]'); if(winImg) winImg.src = cfg.windowImage;
+
+      const tel = telLink(cfg.phoneNumber);
+      const wa  = waLink(cfg.phoneNumber);
+      const heroCall = document.querySelector('[data-bind="callNow"]');
+      if(heroCall){ heroCall.href = tel; heroCall.textContent = `اتصل الآن ${cfg.phoneNumber}`; }
+
+      const ctaCall = document.querySelector('[data-bind="ctaCall"]'); if(ctaCall){ ctaCall.href = tel; }
+      const ctaWa   = document.querySelector('[data-bind="ctaWhatsApp"]'); if(ctaWa){ ctaWa.href = wa; }
+      const flWa    = document.querySelector('[data-bind="floatWhatsApp"]'); if(flWa){ flWa.href = wa; }
+      const flCall  = document.querySelector('[data-bind="floatCall"]'); if(flCall){ flCall.href = tel; }
+
+      const title = `${cfg.officeName} - ${(cfg.offersMonthly? 'خادمات بالشهر' : '')}${(cfg.offersHourly && cfg.offersMonthly? ' و ' : '')}${(cfg.offersHourly? 'خادمات بالساعة' : '')} في ${cfg.city}`.replace(/\s+/g,' ').trim();
+      document.title = title;
+
+      document.querySelectorAll('[data-if]').forEach(el => {
+        const expr = el.getAttribute('data-if');
+        let show = false;
+        try {
+          const fn = new Function('cfg', `with(cfg){ return (${expr}); }`);
+          show = !!fn(cfg);
+        } catch (e) { show = false; }
+        el.style.display = show ? '' : 'none';
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=> applyConfig(CONFIG));
+  </script>
+</body>
 </html>
