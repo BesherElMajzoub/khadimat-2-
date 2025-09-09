@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-bind="pageTitle">خدمة الخادمات</title>
-  <meta name="keywords" content="خادمات بالشهر, شغالات بالشهر, عاملات بالشهر, خادمة بالشهر, شغالة بالشهر, تأجير خادمات بالشهر, تأجير شغالات بالشهر, عاملات منزلية بالشهر, شركات عاملات بالشهر, مكتب خادمات بالشهر, مكتب عاملات بالشهر, شغالات حبشيات بالشهر, شغالات صوماليات بالشهر, خادمات بالساعة, شغالات بالساعة, عاملات بالساعة, طباخات بالشهر, طباخة بالشهر, طباخه بالشهر, الرياض, جدة"/>
+  <meta name="keywords"
+    content="خادمات بالشهر, شغالات بالشهر, عاملات بالشهر, خادمة بالشهر, شغالة بالشهر, تأجير خادمات بالشهر, تأجير شغالات بالشهر, عاملات منزلية بالشهر, شركات عاملات بالشهر, مكتب خادمات بالشهر, مكتب عاملات بالشهر, شغالات حبشيات بالشهر, شغالات صوماليات بالشهر, خادمات بالساعة, شغالات بالساعة, عاملات بالساعة, طباخات بالشهر, طباخة بالشهر, طباخه بالشهر, الرياض, جدة" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,10 +14,10 @@
 <body>
   <script>
     const DEFAULT_CONFIG = {
-      officeName: 'Friendly',
+      officeName: 'سميرة',
       phoneNumber: '0934509759',
       city: 'الرياض',
-      offersHourly: true,
+      offersHourly: false,
       offersMonthly: true,
       offersCooks: true,
       nationalityText: 'صوماليات وحبشيات',
@@ -46,119 +48,86 @@
       <div class="hero__text-group">
         <h1 class="hero__title" data-var="officeName">Friendly</h1>
         <p class="hero__subtitle">
-          <span data-if="offersMonthly && offersHourly">نوفر لك  و<strong>خادمات بالشهر</strong> وكذلك <strong>خادمات بالساعة</strong> </span>
-          <span data-if="offersMonthly && !offersHourly">نوفر لك <strong>شغالات بالشهر</strong> و<strong>خادمات بالشهر</strong></span>
-          <span data-if="offersHourly && !offersMonthly">نوفر لك <strong>خادمات بالساعة</strong> و<strong>شغالات بالساعة</strong></span>
+          <span data-if="offersMonthly && offersHourly">نوفر لك و<strong>خادمات بالشهر</strong> وكذلك <strong>خادمات
+              بالساعة</strong> </span>
+          <span data-if="offersMonthly && !offersHourly">نوفر لك <strong> بالشهر</strong> <strong>خادمات
+              بالشهر</strong></span>
+          <span data-if="offersHourly && !offersMonthly">نوفر لك <strong>خادمات بالساعة</strong> و<strong>شغالات
+              بالساعة</strong></span>
           <span> في <span data-var="city">الرياض</span></span>
         </p>
       </div>
       <a class="hero-call" data-bind="callNow">اتصل الآن</a>
-      <img class="hero__image" data-bind="heroImage" src="image/maid.png" alt="خادمة منزلية"/>
+      <img class="hero__image" data-bind="heroImage" src="image/maid.png" alt="خادمة منزلية" />
     </div>
   </header>
 
   <main id="content">
     <section class="main-card">
       <img class="window-image" data-bind="windowImage" src="image/black-houe.png" alt="نافذة" />
-      <h2 class="main-title">استأجري خادمة أو شغالة بالشهر أو بالساعة لمساعدتك</h2>
+      <h2 class="main-title">استأجريها وخليها تساعدك </h2>
       <div class="cta-section">
         <a class="cta-button" data-bind="ctaCall">اتصل الآن</a>
         <br>
         <a class="request-button" target="_blank" rel="noopener" data-bind="ctaWhatsApp">أرسل واتساب</a>
       </div>
     </section>
-
     <section class="features-section">
-      <div class="feature-item" data-if="offersMonthly">
+      <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>شغالات بالشهر مرونة حسب احتياجك</h3>
-          <p>
-            نوفر لك خيارات متعددة مثل <strong>شغالات بالشهر</strong> أو <strong>شغالة بالشهر</strong>، ويمكنك طلب <strong>ارقام شغالات بالشهر</strong> بسهولة والتواصل معنا للحصول على <strong>تأجير شغالات بالشهر</strong>.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature-item" data-if="offersHourly">
-        <div class="check-icon"></div>
-        <div class="feature-content">
-          <h3>خادمات بالساعة مرونة وسهولة</h3>
-          <p>
-            إذا كنتِ ترغبين في المساعدة السريعة، نوفر <strong>خادمات بالساعة</strong> و<strong>شغالات بالساعة</strong> للتنظيف أو الرعاية المنزلية، مع إمكانية الحصول على <strong>أرقام شغالات بالساعة</strong> بسهولة.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature-item" data-if="offersMonthly">
-        <div class="check-icon"></div>
-        <div class="feature-content">
-          <h3>عاملات منزلية بالشهر</h3>
-          <p>
-            خيارات <strong>عاملات بالشهر</strong> و<strong>عاملات منزلية بالشهر</strong> عبر <strong>تأجير عاملات بالشهر</strong> من <strong>شركات العاملات بالشهر</strong> و<strong>مكتب عاملات بالشهر</strong> في <strong data-var="city">الرياض</strong>.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature-item" data-if="offersHourly">
-        <div class="check-icon"></div>
-        <div class="feature-content">
-          <h3>عاملات بالساعة للتنظيف والمساعدة</h3>
-          <p>
-            نوفر <strong>عاملات بالساعة</strong> و<strong>عاملات تنظيف بالساعة</strong> و<strong>عاملات منزلية بالساعة</strong>، مع إمكانية <strong>عروض العاملات بالساعة</strong> وطلب <strong>ارقام عاملات نظافة بالساعة</strong> بسهولة في <strong data-var="city">الرياض</strong>.
-          </p>
+          <h3>مرونة حسب احتياجك</h3>
+          <p>نقدم لك خيارات متعددة لتأجير <strong>شغالات بالشهر</strong> أو <strong>عاملات منزلية بالشهر</strong> بما
+            يتناسب مع احتياجاتك.</p>
         </div>
       </div>
 
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>خادمات وعاملات مدربات</h3>
-          <p>
-            جميع <strong>الخادمات بالشهر</strong> و<strong>العاملات بالشهر</strong> يتم اختيارهن بعناية وخضعن لتدريب احترافي، بما في ذلك <strong>شغالات صوماليات بالشهر</strong> و<strong>شغالات حبشيات بالشهر</strong>.
-          </p>
-        </div>
-      </div>
-
-      <div class="feature-item" data-if="offersCooks && offersMonthly">
-        <div class="check-icon"></div>
-        <div class="feature-content">
-          <h3>طباخات بالشهر خبرة في الطبخ المنزلي</h3>
-          <p>
-            نوفر <strong>طباخات بالشهر</strong> و<strong>طباخة بالشهر</strong> بخبرة عالية في الأطباق المنزلية اليومية والمأكولات الشعبية، متاحات للعمل في <strong data-var="city">الرياض</strong>.
-          </p>
+          <h3>أسعار تنافسية وخيارات دفع مريحة</h3>
+          <p>نوفر خدماتنا بأسعار مدروسة تناسب مختلف الاحتياجات والميزانيات مع خيارات دفع مرنة.</p>
         </div>
       </div>
 
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>إجراءات سريعة وبسيطة</h3>
-          <p>
-            يمكنك طلب <strong>مكتب خادمات بالشهر</strong> أو <strong>شركة شغالات بالساعة</strong> بخطوات بسيطة جدًا. نوفر الخدمة بشكل مباشر وسريع دون تعقيدات.
-          </p>
+          <h3>خدمات خادمات وعاملات بالشهر بخبرة عالية</h3>
+          <p>جميع <strong>خادمات بالشهر</strong> و<strong>عاملات بالشهر</strong> يخضعن لتدريبات دقيقة في أعمال التنظيف،
+            الطبخ، والعناية المنزلية، مع إمكانية توفير <strong>شغاله بالشهر الرياض</strong> أو <strong>خادمات بالشهر
+              الرياض</strong>.</p>
         </div>
       </div>
 
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>ضمان جودة الخدمة والمتابعة</h3>
-          <p>
-            نتابع معك باستمرار بعد <strong>تأجير خادمات بالشهر</strong> أو <strong>شغالات بالساعة</strong> لضمان أعلى مستوى من الخدمة وتحقيق رضاك الكامل.
-          </p>
+          <h3>إجراءات سريعة وبسيطة بدون تعقيدات</h3>
+          <p>نوفر لك عملية حجز واستقدام <strong>شغالات بالشهر بالرياض</strong> أو الحصول على <strong>أرقام شغالات
+              بالشهر</strong> بسهولة وسرعة دون الحاجة لإجراءات طويلة.</p>
         </div>
       </div>
 
       <div class="feature-item">
         <div class="check-icon"></div>
         <div class="feature-content">
-          <h3>خدمة عملاء متاحة دائمًا</h3>
-          <p>
-            سواء كنتِ بحاجة إلى <strong>رقم شغالات بالشهر</strong> أو <strong>أرقام شغالات بالساعة</strong> أو التواصل مع <strong>شركات عاملات بالشهر</strong>، فريق الدعم لدينا متواجد دائمًا لمساعدتك.
-          </p>
+          <h3>ضمان جودة الخدمة والمتابعة المستمرة</h3>
+          <p>نحرص على متابعة أداء <strong>شغالات بالشهر</strong> و<strong>عاملات بالشهر</strong> بشكل دوري للتأكد من
+            تقديم الخدمة بأعلى مستوى.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="check-icon"></div>
+        <div class="feature-content">
+          <h3>خدمة عملاء متاحة دائماً لخدمتك</h3>
+          <p>فريق الدعم متواجد دائماً لمساعدتك والإجابة عن استفسارك بخصوص <strong>تأجير شغالات بالشهر</strong>،
+            <strong>مكتب خادمات بالشهر</strong>، أو <strong>مكتب عاملات بالشهر</strong> حتى تجد الخدمة الأنسب لك.</p>
         </div>
       </div>
     </section>
+
 
     <footer class="footer">
       <p>
@@ -177,39 +146,41 @@
   <div class="floating-buttons">
     <a class="floating-btn whatsapp-btn" target="_blank" rel="noopener" data-bind="floatWhatsApp" aria-label="واتساب">
       <svg viewBox="0 0 24 24" fill="white" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
       </svg>
     </a>
 
     <a class="floating-btn call-btn" data-bind="floatCall" aria-label="اتصال">
       <svg viewBox="0 0 24 24" fill="#000" aria-hidden="true">
-        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        <path
+          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
       </svg>
     </a>
   </div>
 
   <script>
-    function applyConfig(cfg){
-      document.querySelectorAll('[data-var="officeName"]').forEach(el=> el.textContent = cfg.officeName);
-      document.querySelectorAll('[data-var="city"]').forEach(el=> el.textContent = cfg.city);
-      if(cfg.nationalityText){
-        document.querySelectorAll('[data-var="nationalityText"]').forEach(el=> el.textContent = cfg.nationalityText);
+    function applyConfig(cfg) {
+      document.querySelectorAll('[data-var="officeName"]').forEach(el => el.textContent = cfg.officeName);
+      document.querySelectorAll('[data-var="city"]').forEach(el => el.textContent = cfg.city);
+      if (cfg.nationalityText) {
+        document.querySelectorAll('[data-var="nationalityText"]').forEach(el => el.textContent = cfg.nationalityText);
       }
 
-      const heroImg = document.querySelector('[data-bind="heroImage"]'); if(heroImg) heroImg.src = cfg.heroImage;
-      const winImg  = document.querySelector('[data-bind="windowImage"]'); if(winImg) winImg.src = cfg.windowImage;
+      const heroImg = document.querySelector('[data-bind="heroImage"]'); if (heroImg) heroImg.src = cfg.heroImage;
+      const winImg = document.querySelector('[data-bind="windowImage"]'); if (winImg) winImg.src = cfg.windowImage;
 
       const tel = telLink(cfg.phoneNumber);
-      const wa  = waLink(cfg.phoneNumber);
+      const wa = waLink(cfg.phoneNumber);
       const heroCall = document.querySelector('[data-bind="callNow"]');
-      if(heroCall){ heroCall.href = tel; heroCall.textContent = `اتصل الآن ${cfg.phoneNumber}`; }
+      if (heroCall) { heroCall.href = tel; heroCall.textContent = `اتصل الآن ${cfg.phoneNumber}`; }
 
-      const ctaCall = document.querySelector('[data-bind="ctaCall"]'); if(ctaCall){ ctaCall.href = tel; }
-      const ctaWa   = document.querySelector('[data-bind="ctaWhatsApp"]'); if(ctaWa){ ctaWa.href = wa; }
-      const flWa    = document.querySelector('[data-bind="floatWhatsApp"]'); if(flWa){ flWa.href = wa; }
-      const flCall  = document.querySelector('[data-bind="floatCall"]'); if(flCall){ flCall.href = tel; }
+      const ctaCall = document.querySelector('[data-bind="ctaCall"]'); if (ctaCall) { ctaCall.href = tel; }
+      const ctaWa = document.querySelector('[data-bind="ctaWhatsApp"]'); if (ctaWa) { ctaWa.href = wa; }
+      const flWa = document.querySelector('[data-bind="floatWhatsApp"]'); if (flWa) { flWa.href = wa; }
+      const flCall = document.querySelector('[data-bind="floatCall"]'); if (flCall) { flCall.href = tel; }
 
-      const title = `${cfg.officeName} - ${(cfg.offersMonthly? 'خادمات بالشهر' : '')}${(cfg.offersHourly && cfg.offersMonthly? ' و ' : '')}${(cfg.offersHourly? 'خادمات بالساعة' : '')} في ${cfg.city}`.replace(/\s+/g,' ').trim();
+      const title = `${cfg.officeName} - ${(cfg.offersMonthly ? 'خادمات بالشهر' : '')}${(cfg.offersHourly && cfg.offersMonthly ? ' و ' : '')}${(cfg.offersHourly ? 'خادمات بالساعة' : '')} في ${cfg.city}`.replace(/\s+/g, ' ').trim();
       document.title = title;
 
       document.querySelectorAll('[data-if]').forEach(el => {
@@ -223,7 +194,8 @@
       });
     }
 
-    document.addEventListener('DOMContentLoaded', ()=> applyConfig(CONFIG));
+    document.addEventListener('DOMContentLoaded', () => applyConfig(CONFIG));
   </script>
 </body>
+
 </html>
